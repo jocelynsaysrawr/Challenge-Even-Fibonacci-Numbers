@@ -7,20 +7,36 @@
  */
 function _sumFibs( maxFibValue ) {
   var sum = 0;
+  var prev = 1;
+  var curr = 2;
+  var next = null;
 
-  // do your work here
-
+  while (curr <= maxFibValue){
+    if (curr % 2 === 0) {
+      sum += curr;
+    }
+    next = prev + curr;
+    prev = curr;
+    curr = next;
+  }
   return sum;
 }
+
+console.log(_sumFibs(4000000));
 
 // bonus round
 function _highestFibonacciNumber (maxFibValue){
   var highest = 0;
+  var prev = 1;
+  var curr = 2;
+  var next = null;
 
-  //define your base case, validate your input
-
-
-  //do your work here
+  while (curr < maxFibValue) {
+    highest = curr;
+    next = prev + curr;
+    prev = curr;
+    curr = next;
+  }
 
   return highest;
 };
